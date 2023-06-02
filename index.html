@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+</head>
+
+<body>
+
+  <main class="age-calculator">
+    <div class="age-calculator__input">
+      <label class="age-calculator__input-label" for="">DAY
+        <input class="age-calculator__input-day" type="text" placeholder="DD">
+        <p class="warning warning-day"></p>
+      </label>
+      <label class="age-calculator__input-label " for="">MONTH
+        <input class="age-calculator__input-month" type="text" placeholder="MM">
+        <p class="warning warning-month"></p>
+      </label>
+      <label class="age-calculator__input-label" for="">YEAR
+        <input class="age-calculator__input-year" type="text" placeholder="YYYY">
+        <p class="warning warning-year"></p>
+      </label>
+    </div>
+
+    <div class="age-calculator__arrow">
+      <span class="arrow__line"></span>
+      <img class="button" src="/images/icon-arrow.svg" alt="">
+    </div>
+
+    <div class="age-calculator__output">
+      <div class="output-information__years">
+        <h2 class="output">--</h2>
+        <h2>years</h2>
+      </div>
+      <div class="output-information__months">
+        <h2 class="output"> --</h2>
+        <h2>months</h2>
+      </div>
+      <div class="output-information__days">
+        <h2 class="output"> --</h2>
+        <h2>days</h2>
+      </div>
+
+    </div>
+  </main>
+  <script src="/script.js"></script>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">A.Bago</a>.
+  </div>
+  <p id="result"></p>
+</body>
+
+</html>
