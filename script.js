@@ -46,7 +46,7 @@ function ageCalculator() {
             outputResult.forEach(outputResult => {
                 outputResult.innerHTML = "--";
             })
-            //Normal input remowing warnings
+            //Normal input, remove warnings
         } else {
             if (!isNaN(birthDay) && birthDay < 31) {
                 warning[0].innerHTML = "";
@@ -71,16 +71,15 @@ function ageCalculator() {
 
         }
 
-        if (birthMonth > 12 || birthMonth < 0) {
+        if (birthMonth > 12 || birthMonth <= 0) {
             warning[1].innerHTML = "Must be a valid month";
             label[1].style.color = "red";
 
         }
 
-        if (birthDay > 31 && isNaN(birthMonth) && isNaN(birthYear) || birthDay < 0) {
+        if (birthDay > 31 || birthDay <= 0 && isNaN(birthMonth) && isNaN(birthYear)) {
             warning[0].innerHTML = "Must be a valid day";
-            warning[2].innerHTML = "This field is required";
-            warning[1].innerHTML = "This field is required";
+
             label.forEach(label => {
                 label.style.color = "red";
             });
@@ -107,10 +106,21 @@ function ageCalculator() {
             months[1] = 29;
         }
 
+        // Validation checks
+        if (birthDay < 1 || birthDay > 31) {
+            return; // Exits the function early
+        }
+
+        if (birthMonth < 1 || birthMonth > 12) {
+            return; // Exits the function early
+        }
+
+        if (birthYear > currentYear) {
+            return; // Exits the function early
+        }
 
 
-
-
+        // Calculation
         if (birthDay > currentDate && (birthMonth > currentMonth)) {
             let dayResult = (currentDate + (months[birthMonth - 1]) - birthDay);
             let monthResult = (currentMonth + 12 - 1) - birthMonth;
@@ -149,7 +159,20 @@ function ageCalculator() {
             outputResult[0].innerHTML = yearResult;
 
         }
-     
+        if (birthDay > currentDate && birthMonth <= currentMonth) {
+            console.log((months[birthMonth - 1]));
+            let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
+            let monthResult = (currentMonth - 1) - birthMonth;
+            let yearResult = currentYear - birthYear;
+            console.log(`4.yearResult ${yearResult}`);
+            console.log(`4.monthResult ${monthResult}`);
+            console.log(`4.dayResult ${dayResult}`);
+            outputResult[2].innerHTML = dayResult;
+            outputResult[1].innerHTML = monthResult;
+            outputResult[0].innerHTML = yearResult;
+        }
+
+
     }
 
 
