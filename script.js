@@ -119,59 +119,62 @@ function ageCalculator() {
             return; // Exits the function early
         }
 
-
-        // Calculation
-        if (birthDay > currentDate && (birthMonth > currentMonth)) {
-            let dayResult = (currentDate + (months[birthMonth - 1]) - birthDay);
-            let monthResult = (currentMonth + 12 - 1) - birthMonth;
-            let yearResult = (currentYear - 1) - birthYear;
-            console.log(`1. yearResult ${yearResult}`);
-            console.log(`1. monthResult ${monthResult}`);
-            console.log(`1. dayResult ${dayResult}`);
-            outputResult[2].innerHTML = dayResult;
-            outputResult[1].innerHTML = monthResult;
-            outputResult[0].innerHTML = yearResult;
+        //Check if the input values are numbers
+        if (!isNaN(birthDay) && !isNaN(birthMonth) && !isNaN(birthYear)) {
 
 
-        } if (birthDay <= currentDate && birthMonth <= currentMonth) {
-            console.log((months[birthMonth - 1]));
-            let dayResult = currentDate - birthDay;
-            let monthResult = currentMonth - birthMonth;
-            let yearResult = currentYear - birthYear;
-            console.log(`2.yearResult ${yearResult}`);
-            console.log(`2.monthResult ${monthResult}`);
-            console.log(`2.dayResult ${dayResult}`);
-            outputResult[2].innerHTML = dayResult;
-            outputResult[1].innerHTML = monthResult;
-            outputResult[0].innerHTML = yearResult;
+            // Calculation
+            if (birthDay > currentDate && (birthMonth > currentMonth)) {
+                let dayResult = (currentDate + (months[birthMonth - 1]) - birthDay);
+                let monthResult = (currentMonth + 12 - 1) - birthMonth;
+                let yearResult = (currentYear - 1) - birthYear;
+                console.log(`1. yearResult ${yearResult}`);
+                console.log(`1. monthResult ${monthResult}`);
+                console.log(`1. dayResult ${dayResult}`);
+                outputResult[2].innerHTML = dayResult;
+                outputResult[1].innerHTML = monthResult;
+                outputResult[0].innerHTML = yearResult;
+
+
+            } if (birthDay <= currentDate && birthMonth <= currentMonth) {
+                console.log((months[birthMonth - 1]));
+                let dayResult = currentDate - birthDay;
+                let monthResult = currentMonth - birthMonth;
+                let yearResult = currentYear - birthYear;
+                console.log(`2.yearResult ${yearResult}`);
+                console.log(`2.monthResult ${monthResult}`);
+                console.log(`2.dayResult ${dayResult}`);
+                outputResult[2].innerHTML = dayResult;
+                outputResult[1].innerHTML = monthResult;
+                outputResult[0].innerHTML = yearResult;
+            }
+
+            if (birthDay <= currentDate && (birthMonth > currentMonth)) {
+                console.log((months[birthMonth]));
+                let dayResult = (currentDate - birthDay);
+                let monthResult = (currentMonth + 12) - birthMonth;
+                let yearResult = (currentYear - 1) - birthYear;
+                console.log(`3.yearResult ${yearResult}`);
+                console.log(`3.monthResult ${monthResult}`);
+                console.log(`3.dayResult ${dayResult}`);
+                outputResult[2].innerHTML = dayResult;
+                outputResult[1].innerHTML = monthResult;
+                outputResult[0].innerHTML = yearResult;
+
+            }
+            if (birthDay > currentDate && birthMonth <= currentMonth) {
+                console.log((months[birthMonth - 1]));
+                let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
+                let monthResult = (currentMonth - 1) - birthMonth;
+                let yearResult = currentYear - birthYear;
+                console.log(`4.yearResult ${yearResult}`);
+                console.log(`4.monthResult ${monthResult}`);
+                console.log(`4.dayResult ${dayResult}`);
+                outputResult[2].innerHTML = dayResult;
+                outputResult[1].innerHTML = monthResult;
+                outputResult[0].innerHTML = yearResult;
+            }
         }
-
-        if (birthDay <= currentDate && (birthMonth > currentMonth)) {
-            console.log((months[birthMonth]));
-            let dayResult = (currentDate - birthDay);
-            let monthResult = (currentMonth + 12) - birthMonth;
-            let yearResult = (currentYear - 1) - birthYear;
-            console.log(`3.yearResult ${yearResult}`);
-            console.log(`3.monthResult ${monthResult}`);
-            console.log(`3.dayResult ${dayResult}`);
-            outputResult[2].innerHTML = dayResult;
-            outputResult[1].innerHTML = monthResult;
-            outputResult[0].innerHTML = yearResult;
-
-        }
-        if (birthDay > currentDate && birthMonth <= currentMonth) {
-            console.log((months[birthMonth - 1]));
-            let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
-            let monthResult = (currentMonth - 1) - birthMonth;
-            let yearResult = currentYear - birthYear;
-            console.log(`4.yearResult ${yearResult}`);
-            console.log(`4.monthResult ${monthResult}`);
-            console.log(`4.dayResult ${dayResult}`);
-            outputResult[2].innerHTML = dayResult;
-            outputResult[1].innerHTML = monthResult;
-            outputResult[0].innerHTML = yearResult;
-        }
-
 
     }
 
