@@ -71,7 +71,7 @@ img {
   box-sizing: border-box;
   padding: 15px;
 }
-h2 {
+h1 {
   display: inline;
   font-size: 104px;
   color: #151515;
@@ -94,7 +94,7 @@ h2 {
   cursor: pointer;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
   .age-calculator {
     width: 343px;
     height: 486px;
@@ -123,7 +123,7 @@ h2 {
     height: 64px;
     width: 64px;
   }
-  h2 {
+  h1 {
     font-size: 56px;
   }
   input[placeholder] {
