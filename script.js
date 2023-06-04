@@ -69,6 +69,9 @@ function ageCalculator() {
             warning[2].innerHTML = "Must be in the past"
             label[2].style.color = "red";
 
+        } else if (birthYear < 0) {
+            warning[2].innerHTML = "Can't be negative"
+            label[2].style.color = "red";
         }
 
         if (birthMonth > 12 || birthMonth <= 0) {
@@ -124,8 +127,8 @@ function ageCalculator() {
 
 
             // Calculation
-            if (birthDay > currentDate && (birthMonth > currentMonth)) {
-                let dayResult = (currentDate + (months[birthMonth - 1]) - birthDay);
+            if (birthDay > currentDate && (birthMonth >= currentMonth)) {
+                let dayResult = (currentDate + (months[birthMonth]) - birthDay);
                 let monthResult = (currentMonth + 12 - 1) - birthMonth;
                 let yearResult = (currentYear - 1) - birthYear;
                 console.log(`1. yearResult ${yearResult}`);
@@ -136,7 +139,21 @@ function ageCalculator() {
                 outputResult[0].innerHTML = yearResult;
 
 
-            } if (birthDay <= currentDate && birthMonth <= currentMonth) {
+            } else if (birthDay > currentDate && birthMonth < currentMonth) {
+                console.log((months[birthMonth - 1]));
+                let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
+                let monthResult = (currentMonth - 1) - birthMonth;
+                let yearResult = currentYear - birthYear;
+                console.log(`4.yearResult ${yearResult}`);
+                console.log(`4.monthResult ${monthResult}`);
+                console.log(`4.dayResult ${dayResult}`);
+                outputResult[2].innerHTML = dayResult;
+                outputResult[1].innerHTML = monthResult;
+                outputResult[0].innerHTML = yearResult;
+            }
+            
+
+            if (birthDay <= currentDate && birthMonth <= currentMonth) {
                 console.log((months[birthMonth - 1]));
                 let dayResult = currentDate - birthDay;
                 let monthResult = currentMonth - birthMonth;
@@ -147,9 +164,7 @@ function ageCalculator() {
                 outputResult[2].innerHTML = dayResult;
                 outputResult[1].innerHTML = monthResult;
                 outputResult[0].innerHTML = yearResult;
-            }
-
-            if (birthDay <= currentDate && (birthMonth > currentMonth)) {
+            } else if (birthDay < currentDate && (birthMonth > currentMonth)) {
                 console.log((months[birthMonth]));
                 let dayResult = (currentDate - birthDay);
                 let monthResult = (currentMonth + 12) - birthMonth;
@@ -162,18 +177,7 @@ function ageCalculator() {
                 outputResult[0].innerHTML = yearResult;
 
             }
-            if (birthDay > currentDate && birthMonth <= currentMonth) {
-                console.log((months[birthMonth - 1]));
-                let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
-                let monthResult = (currentMonth - 1) - birthMonth;
-                let yearResult = currentYear - birthYear;
-                console.log(`4.yearResult ${yearResult}`);
-                console.log(`4.monthResult ${monthResult}`);
-                console.log(`4.dayResult ${dayResult}`);
-                outputResult[2].innerHTML = dayResult;
-                outputResult[1].innerHTML = monthResult;
-                outputResult[0].innerHTML = yearResult;
-            }
+
         }
 
     }
