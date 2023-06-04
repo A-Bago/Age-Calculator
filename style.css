@@ -68,6 +68,8 @@ img {
   height: 100%;
   background-color: #854dff;
   border-radius: 50%;
+  box-sizing: border-box;
+  padding: 15px;
 }
 h2 {
   display: inline;
