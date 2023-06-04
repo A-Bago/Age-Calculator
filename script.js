@@ -138,7 +138,6 @@ function ageCalculator() {
                 outputResult[1].innerHTML = monthResult;
                 outputResult[0].innerHTML = yearResult;
 
-
             } else if (birthDay > currentDate && birthMonth < currentMonth) {
                 console.log((months[birthMonth - 1]));
                 let dayResult = (currentDate + months[birthMonth - 1]) - birthDay;
@@ -151,7 +150,7 @@ function ageCalculator() {
                 outputResult[1].innerHTML = monthResult;
                 outputResult[0].innerHTML = yearResult;
             }
-            
+
 
             if (birthDay <= currentDate && birthMonth <= currentMonth) {
                 console.log((months[birthMonth - 1]));
@@ -164,6 +163,7 @@ function ageCalculator() {
                 outputResult[2].innerHTML = dayResult;
                 outputResult[1].innerHTML = monthResult;
                 outputResult[0].innerHTML = yearResult;
+
             } else if (birthDay < currentDate && (birthMonth > currentMonth)) {
                 console.log((months[birthMonth]));
                 let dayResult = (currentDate - birthDay);
